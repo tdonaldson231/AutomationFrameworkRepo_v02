@@ -1,0 +1,9 @@
+﻿<extentreports>
+    <configuration>
+        <theme>dark</theme>
+        <encoding>UTF-8</encoding>
+        <protocol>https</protocol>
+        <documentTitle>Test Automation Report</documentTitle>
+        <reportName>Extent Report - API Tests</reportName>
+    </configuration>
+</extentreports>
