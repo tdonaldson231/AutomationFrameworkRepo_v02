@@ -1,0 +1,5 @@
+{
+  "AboutPage": {
+    "PageHeaderLabel": "//span[contains(text(), 'We elevate the way the world')]"
+  }
+}

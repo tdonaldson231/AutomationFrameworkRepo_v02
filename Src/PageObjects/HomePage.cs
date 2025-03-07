@@ -3,7 +3,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.WaitHelpers;
 
-namespace AutomationFrameworkRepo_v02.PageObjects.Portal
+namespace AutomationFrameworkRepo_v02.Src.PageObjects
 {
     class HomePage : Base
     {

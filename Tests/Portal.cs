@@ -1,9 +1,7 @@
 using Xunit;
 using OpenQA.Selenium;
-using AutomationFrameworkRepo_v02.PageObjects.Portal;
 using AventStack.ExtentReports;
-using AutomationFramework_v8._0.Src.Lib;
-using RestSharp;
+using AutomationFrameworkRepo_v02.Src.PageObjects;
 
 namespace UserInterface
 {
