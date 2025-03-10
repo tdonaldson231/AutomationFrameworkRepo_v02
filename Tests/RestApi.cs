@@ -17,6 +17,22 @@ namespace RestApi
             _reportFixture = reportFixture;
         }
 
+        /// <name>
+        ///   Test Case: RestApiPostDataBackendService
+        /// </name>
+        /// <summary>
+        ///   Verify backend service responds with an status code 200/OK 
+        //?    when performing a Get.
+        /// </summary>
+        /// <testid>
+        ///     MRN-303: <link to test case id here>
+        /// </testid>
+        /// <bug>
+        ///     JIRA-5004: An Error is displayed when attempting API Get
+        /// </bug>
+        /// <note>
+        ///     Note: Throws an Assert if the returned status codes does not equal OK
+        /// </note>
         [Fact]
         public void RestApiPostDataBackendService()
         {
