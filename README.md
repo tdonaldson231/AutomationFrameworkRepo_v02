@@ -7,7 +7,7 @@ This repository demonstrates a basic test automation framework in C# using:
 - **Selenium WebDriver** for UI automation  
 - **Extent Reports** for generating HTML reports
 
-There are currently only two test cases, an API and one UI. 
+Currently, there are only 3-test cases for a basic demonstration, two API and one UI. One of the API is set to fail intentionally to show how failures are displayed in the results. 
 
 ## Installation 
 Clone this repository 

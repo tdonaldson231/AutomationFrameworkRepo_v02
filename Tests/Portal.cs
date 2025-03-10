@@ -18,6 +18,20 @@ namespace UserInterface
             _webDriver = webDriverFixture.WebDriver;
         }
         
+        /// <name>
+        ///   Test Case: PortalVerifyTextOnAboutPage
+        /// </name>
+        /// <summary>
+        ///   Verify the user is directed to the About Page by verifying the expected text
+        ///   Page is returned after clicking on the link from the Home Page.
+        /// </summary>
+        /// <testid>
+        ///     MRN-488: <link to test case id here>
+        /// </testid>
+        /// <bug>     
+        /// </bug>
+        /// <note>
+        /// </note>
         [Fact]
         public void PortalVerifyTextOnAboutPage()
         {
