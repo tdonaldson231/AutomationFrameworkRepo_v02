@@ -13,10 +13,6 @@ namespace AutomationFramework_v8._0.Src.Lib
         private static int webDriverTimeout = 5000;
         public static string restApiUrl = "https://reqres.in/api/users/2";
 
-        public Base()
-        {            
-        }
-
         public static IWebDriver getSeleniumDriver()
         {
             if (webDriver == null)

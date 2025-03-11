@@ -54,5 +54,22 @@ Failed!  - Failed:     1, Passed:     2, Skipped:     0, Total:     3, Duration:
 
 ```
 
-## Results 
+#### Per Category
+From the home directory, execute only the tests flagged as `Regression`
+```
+dotnet test bin/Debug/net8.0/AutomationFrameworkRepo_v02.dll ----filter "Category=Regression"
+```
+
+Results
+```
+$ dotnet test bin/Debug/net8.0/AutomationFrameworkRepo_v02.dll --filter "Category=Regression"
+VSTest version 17.12.0 (x64)
+
+Starting test execution, please wait...
+A total of 1 test files matched the specified pattern.
+
+Passed!  - Failed:     0, Passed:     2, Skipped:     0, Total:     2, Duration: 8 s - AutomationFrameworkRepo_v02.dll (net8.0)
+```
+
+## Automation Html Results 
 Extent Html Reports are generated with date/timestamps in the `Reports` directory
