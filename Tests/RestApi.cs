@@ -52,7 +52,7 @@ namespace RestApi
             }
             catch (Exception ex)
             {
-                _test.Fail("FAIL: The expected status was detected. " + ex.Message);
+                _test.Fail("FAIL: The expected status was not detected. " + ex.Message);
                 throw;
             }
         }
@@ -75,7 +75,7 @@ namespace RestApi
             }
             catch (Exception ex)
             {
-                _test.Fail("FAIL: The expected status was detected: " + ex.Message);
+                _test.Fail("FAIL: The expected status was not detected: " + ex.Message);
                 throw;
             }
         }
