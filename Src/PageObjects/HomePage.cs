@@ -1,4 +1,5 @@
 ﻿using AutomationFramework_v8._0.Src.Lib;
+using AutomationFrameworkRepo_v02.Src.Utilities;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.WaitHelpers;
@@ -16,7 +17,8 @@ namespace AutomationFrameworkRepo_v02.Src.PageObjects
             wait = new WebDriverWait(webDriver, TimeSpan.FromSeconds(15));
         }
 
-        private By AboutPageLinkLocator => By.XPath("//a[text()='About']");
+        //private By AboutPageLinkLocator => By.XPath("//a[text()='About']");
+        private By AboutPageLinkLocator => By.XPath(LocatorReader.GetLocator("HomePage", "AboutPageLink"));
 
         public void ClickAboutPageLink()
         {

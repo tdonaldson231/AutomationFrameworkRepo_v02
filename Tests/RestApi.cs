@@ -34,6 +34,8 @@ namespace RestApi
         ///     Note: Throws an Assert if the returned status codes does not equal OK
         /// </note>
         [Fact]
+        [Trait("Category", "Regression")]
+        [Trait("Category", "API")]
         public void RestApiPostDataBackendService()
         {
             try
@@ -50,12 +52,13 @@ namespace RestApi
             }
             catch (Exception ex)
             {
-                _test.Fail("FAIL: " + ex.Message);
+                _test.Fail("FAIL: The expected status was detected. " + ex.Message);
                 throw;
             }
         }
 
         [Fact]
+        [Trait("Category", "API")]
         public void RestApiPostDataBackendServiceFailure()
         {
             try
@@ -72,7 +75,7 @@ namespace RestApi
             }
             catch (Exception ex)
             {
-                _test.Fail("FAIL: " + ex.Message);
+                _test.Fail("FAIL: The expected status was detected: " + ex.Message);
                 throw;
             }
         }

@@ -1,5 +1,8 @@
 {
+  "HomePage": {
+    "AboutPageLink": "//a[text()='About']"
+  },
   "AboutPage": {
     "PageHeaderLabel": "//span[contains(text(), 'We elevate the way the world')]"
-  }
+  }  
 }

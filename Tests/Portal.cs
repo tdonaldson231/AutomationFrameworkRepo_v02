@@ -33,6 +33,8 @@ namespace UserInterface
         /// <note>
         /// </note>
         [Fact]
+        [Trait("Category", "Regression")]
+        [Trait("Category", "UI")]
         public void PortalVerifyTextOnAboutPage()
         {
             try
@@ -50,7 +52,7 @@ namespace UserInterface
             }
             catch (Exception ex)
             {
-                _test.Fail("FAIL: " + ex.Message);
+                _test.Fail("FAIL: The expected status was detected. " + ex.Message);
                 throw;
             }
         }
