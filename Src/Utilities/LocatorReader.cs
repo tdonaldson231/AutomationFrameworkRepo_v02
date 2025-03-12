@@ -13,7 +13,7 @@ namespace AutomationFrameworkRepo_v02.Src.Utilities
         {
             string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
             string projectPath = Directory.GetParent(baseDirectory).Parent.Parent.Parent.FullName;
-            string filePath = Path.Combine(projectPath, "Src\\Config\\UserInterface", "locators.json");
+            string filePath = Path.Combine(projectPath, "Config\\UserInterface", "locators.json");
             if (File.Exists(filePath))
             {
                 string jsonContent = File.ReadAllText(filePath);

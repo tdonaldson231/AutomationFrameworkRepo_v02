@@ -37,14 +37,12 @@ dotnet test bin/Debug/net8.0/AutomationFrameworkRepo_v02.dll
 ```
 Results
 ```bash
- ~/source/repos/AutomationFrameworkRepo_v02 (main)
-$ dotnet test bin/Debug/net8.0/AutomationFrameworkRepo_v02.dll
 VSTest version 17.12.0 (x64)
 
 Starting test execution, please wait...
 A total of 1 test files matched the specified pattern.
-[xUnit.net 00:00:00.40]     RestApi.RestApi.RestApiPostDataBackendServiceFailure [FAIL]
-  Failed RestApi.RestApi.RestApiPostDataBackendServiceFailure [214 ms]
+[xUnit.net 00:00:30.24]     RestApi.RestApi.RestApiPostDataBackendServiceFailure [FAIL]
+  Failed RestApi.RestApi.RestApiPostDataBackendServiceFailure [237 ms]
   Error Message:
    Assert.Equal() Failure: Strings differ
             ↓ (pos 1)
@@ -52,29 +50,28 @@ Expected: "OkieDokie"
 Actual:   "OK"
             ↑ (pos 1)
   Stack Trace:
-     at RestApi.RestApi.RestApiPostDataBackendServiceFailure() in C:\Users\toddd\source\repos\AutomationFrameworkRepo_v02\Tests\RestApi.cs:line 54
+     at RestApi.RestApi.RestApiPostDataBackendServiceFailure() in C:\Users\toddd\source\repos\AutomationFrameworkRepo_v02\Tests\RestApi.cs:line 72
    at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
    at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
 
-Failed!  - Failed:     1, Passed:     2, Skipped:     0, Total:     3, Duration: 5 s - AutomationFrameworkRepo_v02.dll (net8.0)
+Failed!  - Failed:     1, Passed:     4, Skipped:     0, Total:     5, Duration: 10 s - AutomationFrameworkRepo_v02.dll (net8.0)
 
 ```
 
 #### Per Category
 From the home directory, execute only the tests flagged as `Regression`
 ```
-dotnet test bin/Debug/net8.0/AutomationFrameworkRepo_v02.dll ----filter "Category=Regression"
+dotnet test bin/Debug/net8.0/AutomationFrameworkRepo_v02.dll --filter "Category=Regression"
 ```
 
 Results
 ```
-$ dotnet test bin/Debug/net8.0/AutomationFrameworkRepo_v02.dll --filter "Category=Regression"
 VSTest version 17.12.0 (x64)
 
 Starting test execution, please wait...
 A total of 1 test files matched the specified pattern.
 
-Passed!  - Failed:     0, Passed:     2, Skipped:     0, Total:     2, Duration: 8 s - AutomationFrameworkRepo_v02.dll (net8.0)
+Passed!  - Failed:     0, Passed:     4, Skipped:     0, Total:     4, Duration: 10 s - AutomationFrameworkRepo_v02.dll (net8.0)
 ```
 
 ## Automation Html Results 

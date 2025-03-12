@@ -12,7 +12,7 @@ public class DockerComposeHelper : IAsyncDisposable
     {
         string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
         projectPath = Directory.GetParent(baseDirectory).Parent.Parent.Parent.FullName;
-        _dockerComposeDirectory = Path.Combine(projectPath, "Src", "Config", "Sql");
+        _dockerComposeDirectory = Path.Combine(projectPath, "Config", "Sql");
 
         // debugging: Output the computed paths
         Console.WriteLine($"Base Directory: {baseDirectory}");
