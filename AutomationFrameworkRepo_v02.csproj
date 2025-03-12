@@ -28,20 +28,16 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Reports\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="Src\Config\Sql\docker-compose.yml">
+    <None Update="Config\Sql\docker-compose.yml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Src\Config\Sql\mysql-init\mock_data.sql">
+    <None Update="Config\Sql\mysql-init\mock_data.sql">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Src\Config\Sql\README.md">
+    <None Update="Config\Sql\README.md">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Src\Config\UserInterface\locators.json">
+    <None Update="Config\UserInterface\locators.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

@@ -13,3 +13,14 @@ INSERT INTO results (name, score) VALUES
 ('George', 78),
 ('Paul', 75);
 
+-- drop if stored procedure already exists
+DROP PROCEDURE IF EXISTS GetHighScores;
+
+DELIMITER //
+
+CREATE PROCEDURE GetHighScores(IN min_score INT)
+BEGIN
+    SELECT * FROM results WHERE score >= min_score;
+END //
+
+DELIMITER ;
