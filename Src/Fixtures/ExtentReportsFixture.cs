@@ -35,6 +35,7 @@ public class ExtentReportsFixture : IDisposable
     }
 
     public void Dispose()
+    
     {
         Extent.Flush();
     }

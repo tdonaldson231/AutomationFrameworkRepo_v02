@@ -12,6 +12,7 @@ namespace AutomationFramework_v8._0.Src.Lib
         private static string portalUrl = "https://ultimateqa.com/automation";
         private static int webDriverTimeout = 5000;
         public static string restApiUrl = "https://reqres.in/api/users/2";
+        public static string mySqlConnection = "Server=localhost;Port=3306;Database=testdb;User ID=testuser;Password=testpassword;";
 
         public static IWebDriver getSeleniumDriver()
         {

@@ -6,8 +6,14 @@ This repository demonstrates a basic test automation framework in C# using:
 - **RestSharp** for API testing  
 - **Selenium WebDriver** for UI automation  
 - **Extent Reports** for generating HTML reports
+- **MySql** for a simple SQL query test case.
 
-There are only 3-test cases for a basic demonstration, two API and one UI. One of the API is set to fail intentionally to show how failures are displayed in the results. 
+There are only 4-test cases for a basic demonstration, two API, a UI, and one SQL. 
+One of the API is set to fail intentionally to show how failures are displayed in the results.
+The SQL test case spins up a MySql DB and seeds with mock data to be used for the test SQL tests.
+
+## Prerequisites
+- Docker Desktop must be installed and running locally.- 
 
 ## Installation 
 Clone this repository 

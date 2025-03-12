@@ -2,12 +2,11 @@ using Xunit;
 using RestSharp;
 using AutomationFramework_v8._0.Src.Lib;
 using AventStack.ExtentReports;
-using OpenQA.Selenium;
 
 namespace RestApi
 {
     [Collection("Extent Report Collection")]
-    public class RestApi
+    public class RestApi 
     {
         private readonly ExtentReportsFixture _reportFixture;
         private ExtentTest _test;
@@ -22,7 +21,7 @@ namespace RestApi
         /// </name>
         /// <summary>
         ///   Verify backend service responds with an status code 200/OK 
-        //?    when performing a Get.
+        ///    when performing a Get.
         /// </summary>
         /// <testid>
         ///     MRN-303: <link to test case id here>
