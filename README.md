@@ -41,8 +41,8 @@ VSTest version 17.12.0 (x64)
 
 Starting test execution, please wait...
 A total of 1 test files matched the specified pattern.
-[xUnit.net 00:00:30.24]     RestApi.RestApi.RestApiPostDataBackendServiceFailure [FAIL]
-  Failed RestApi.RestApi.RestApiPostDataBackendServiceFailure [237 ms]
+[xUnit.net 00:00:30.24]     RestApi.RestApi.RestApiGetDataBackendServiceFailure [FAIL]
+  Failed RestApi.RestApi.RestApiGetDataBackendServiceFailure [237 ms]
   Error Message:
    Assert.Equal() Failure: Strings differ
             ↓ (pos 1)
@@ -50,7 +50,7 @@ Expected: "OkieDokie"
 Actual:   "OK"
             ↑ (pos 1)
   Stack Trace:
-     at RestApi.RestApi.RestApiPostDataBackendServiceFailure() in C:\Users\toddd\source\repos\AutomationFrameworkRepo_v02\Tests\RestApi.cs:line 72
+     at RestApi.RestApi.RestApiGetDataBackendServiceFailure() in C:\Users\toddd\source\repos\AutomationFrameworkRepo_v02\Tests\RestApi.cs:line 72
    at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
    at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
 
