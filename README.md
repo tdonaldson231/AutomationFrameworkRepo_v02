@@ -39,19 +39,20 @@ The test uses the following precedence to determine the environment:
 - Then go to `Tests > Run All Tests`
  
 ### Command Line (dotnet)
-From the home directory, execute the following to run only the API tests using the static setting in the `Base` file: `protected readonly string testEnvironment = "integration"` 
+From the home directory, execute the following to run all the tests using the default `testEnvironment` = "local" 
+**Note**: additional debug can be displayed: `--logger "console;verbosity=detailed"`
+
 ```bash
-dotnet test bin/Debug/net8.0/AutomationFrameworkRepo_v02.dll
+dotnet test bin/Debug/net8.0/AutomationFrameworkRepo_v02.dll --logger "console;verbosity=info"
 ```
 Results
 ```bash
-$ dotnet test bin/Debug/net8.0/AutomationFrameworkRepo_v02.dll --filter "Category=API"
 VSTest version 17.12.0 (x64)
 
 Starting test execution, please wait...
 A total of 1 test files matched the specified pattern.
-[xUnit.net 00:00:01.32]     RestApi.RestApi.RestApiGetDataBackendServiceFailure [FAIL]
-  Failed RestApi.RestApi.RestApiGetDataBackendServiceFailure [775 ms]
+[xUnit.net 00:00:29.38]     RestApi.RestApi.RestApiGetDataBackendServiceFailure [FAIL]
+  Failed RestApi.RestApi.RestApiGetDataBackendServiceFailure [236 ms]
   Error Message:
    Assert.Equal() Failure: Strings differ
             ↓ (pos 1)
@@ -63,20 +64,18 @@ Actual:   "OK"
    at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
    at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
   Standard Output Messages:
- Test Environment (RestApi): integration
+ Test Environment (RestApi): local
  FAIL: The expected status was not detected: Assert.Equal() Failure: Strings differ
              ↓ (pos 1)
  Expected: "OkieDokie"
  Actual:   "OK"
              ↑ (pos 1)
 
-Failed!  - Failed:     1, Passed:     1, Skipped:     0, Total:     2, Duration: 1 s - AutomationFrameworkRepo_v02.dll (net8.0)
-
+Failed!  - Failed:     1, Passed:     4, Skipped:     0, Total:     5, Duration: 9 s - AutomationFrameworkRepo_v02.dll (net8.0)
 ```
 
 #### Per Category
-From the home directory, execute only the tests flagged as `Regression` and override `testEnvironment`.\
-**Note**: additional debug can be displayed: `--logger "console;verbosity=detailed"`
+From the home directory, execute only the tests flagged as `Regression` and override `testEnvironment`.
 
 ```bash
 export testEnvironment=development

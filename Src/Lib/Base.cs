@@ -7,7 +7,7 @@ namespace AutomationFramework_v8._0.Src.Lib
 {
     public class Base : IClassFixture<TestConfigFixture>
     {
-        protected readonly string testEnvironment = "integration";  // specify when runnig visual studio debug else the environment: "dev";
+        protected readonly string testEnvironment = "";  // specify when runnig visual studio debug else the environment: "dev";
 
         private static IWebDriver? webDriver;
         private static string portalUrl = "https://ultimateqa.com/automation";
