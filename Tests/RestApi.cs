@@ -17,7 +17,7 @@ namespace RestApi
         }
 
         /// <name>
-        ///   Test Case: RestApiPostDataBackendService
+        ///   Test Case: RestApiGetDataBackendService
         /// </name>
         /// <summary>
         ///   Verify backend service responds with an status code 200/OK 
@@ -35,13 +35,13 @@ namespace RestApi
         [Fact]
         [Trait("Category", "Regression")]
         [Trait("Category", "API")]
-        public void RestApiPostDataBackendService()
+        public void RestApiGetDataBackendService()
         {
             try
             {
                 string apiUrl = Base.restApiUrl;
                 var client = new RestClient(apiUrl);
-                _test = _reportFixture.Extent.CreateTest("RestApiPostDataBackendService");
+                _test = _reportFixture.Extent.CreateTest("RestApiGetDataBackendService");
 
                 RestResponse response = client.Get(new RestRequest());
                 System.Net.HttpStatusCode statusCode = response.StatusCode;
@@ -58,13 +58,13 @@ namespace RestApi
 
         [Fact]
         [Trait("Category", "API")]
-        public void RestApiPostDataBackendServiceFailure()
+        public void RestApiGetDataBackendServiceFailure()
         {
             try
             {
                 string apiUrl = Base.restApiUrl;
                 var client = new RestClient(apiUrl);
-                _test = _reportFixture.Extent.CreateTest("RestApiPostDataBackendService");
+                _test = _reportFixture.Extent.CreateTest("RestApiGetDataBackendService");
 
                 RestResponse response = client.Get(new RestRequest());
                 System.Net.HttpStatusCode statusCode = response.StatusCode;
