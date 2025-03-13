@@ -13,6 +13,55 @@ One of the API is set to fail intentionally to show how failures are displayed i
 The SQL test case spins up a MySql DB, seeds with mock data, adds a stored procedure both with are
 used for the SQL tests.
 
+## Structure
+```bash
+|-- AutomationFrameworkRepo_v02.csproj
+|-- AutomationFrameworkRepo_v02.sln
+|-- Config
+|   |-- Sql
+|   |   |-- README.md
+|   |   |-- Src
+|   |   |   `-- Config
+|   |   |       `-- Sql
+|   |   |           `-- mysql-init
+|   |   |-- docker-compose.yml
+|   |   `-- mysql-init
+|   |       `-- mock_data.sql
+|   `-- UserInterface
+|       `-- locators.json
+|-- Extent-Config.xml
+|-- README.md
+|-- Reports
+|   `-- Extent_Reports_Example.html
+|-- Src
+|   |-- Config
+|   |   `-- Sql
+|   |-- Fixtures
+|   |   |-- DatabaseFixture.cs
+|   |   |-- ExtentReportsFixture.cs
+|   |   |-- TestConfigFixture.cs
+|   |   `-- WebDriverFixture.cs
+|   |-- Helpers
+|   |   `-- DockerComposeHelper.cs
+|   |-- Lib
+|   |   |-- Base.cs
+|   |   `-- ExtentReportCollection.cs
+|   |-- PageObjects
+|   |   |-- AboutPage.cs
+|   |   `-- HomePage.cs
+|   `-- Utilities
+|       `-- LocatorReader.cs
+`-- Tests
+    |-- Portal.cs
+    |-- RestApi.cs
+    |-- RunSettings
+    |   |-- dev.runsettings
+    |   `-- test.runsettings
+    `-- Sql.cs
+```
+### Helpers
+Utility methods or classes designed to simplify repetitive tasks within the tests. They are typically used for operations that don't directly involve setting up or tearing down test data but instead offer support by providing commonly used functionality
+
 ## Prerequisites
 - Docker Desktop must be installed and running locally (using windows). 
 
