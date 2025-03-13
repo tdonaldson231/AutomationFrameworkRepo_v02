@@ -5,14 +5,22 @@ using System.Reflection;
 
 namespace AutomationFramework_v8._0.Src.Lib
 {
-    public class Base
+    public class Base : IClassFixture<TestConfigFixture>
     {
+        protected readonly string testEnvironment = "integration";  // specify when runnig visual studio debug else the environment: "dev";
 
         private static IWebDriver? webDriver;
         private static string portalUrl = "https://ultimateqa.com/automation";
         private static int webDriverTimeout = 5000;
         public static string restApiUrl = "https://reqres.in/api/users/2";
         public static string mySqlConnection = "Server=localhost;Port=3306;Database=testdb;User ID=testuser;Password=testpassword;";
+        
+        public Base(TestConfigFixture config)
+        {
+            testEnvironment = !string.IsNullOrWhiteSpace(Environment.GetEnvironmentVariable("testEnvironment"))
+                ? Environment.GetEnvironmentVariable("testEnvironment")
+                : (!string.IsNullOrWhiteSpace(testEnvironment) ? testEnvironment : "local");
+        }
 
         public static IWebDriver getSeleniumDriver()
         {

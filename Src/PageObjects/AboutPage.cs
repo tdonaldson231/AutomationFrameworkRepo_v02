@@ -12,10 +12,9 @@ namespace AutomationFrameworkRepo_v02.Src.PageObjects
         private readonly WebDriverWait wait;
         private static int webDriverTimeout = 15;
 
-        // Explicit Waits
         // Use WebDriverWait in combination with expected conditions to wait for an element to appear, 
         // become clickable, or change state before interacting with it. 
-        public AboutPage(IWebDriver webDriver)
+        public AboutPage(IWebDriver webDriver, TestConfigFixture config) : base(config)
         {
             this.webDriver = webDriver;
             wait = new WebDriverWait(webDriver, TimeSpan.FromSeconds(webDriverTimeout));

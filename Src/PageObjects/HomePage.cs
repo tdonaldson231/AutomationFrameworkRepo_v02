@@ -11,7 +11,7 @@ namespace AutomationFrameworkRepo_v02.Src.PageObjects
         private readonly IWebDriver webDriver;
         private readonly WebDriverWait wait;
 
-        public HomePage(IWebDriver webDriver)
+        public HomePage(IWebDriver webDriver, TestConfigFixture config) : base(config)
         {
             this.webDriver = webDriver;
             wait = new WebDriverWait(webDriver, TimeSpan.FromSeconds(15));
