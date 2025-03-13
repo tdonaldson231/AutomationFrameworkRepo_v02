@@ -34,8 +34,6 @@ used for the SQL tests.
 |-- Reports
 |   `-- Extent_Reports_Example.html
 |-- Src
-|   |-- Config
-|   |   `-- Sql
 |   |-- Fixtures
 |   |   |-- DatabaseFixture.cs
 |   |   |-- ExtentReportsFixture.cs
@@ -59,10 +57,10 @@ used for the SQL tests.
     |   `-- test.runsettings
     `-- Sql.cs
 ```
-## Src
-### Config
+## Config
 The Config directory is used to store configuration files that assist in setting up and managing various utilities needed for the project. These configuration files are integral in facilitating tasks such as automating tests with Selenium, seeding mock data into a SQL database, and configuring other project-related utilities.
 
+## Src
 ### Base
 The Base class serves as the foundational class for the automation framework within the project. It provides essential functionality such as setting up the environment and initializing a Selenium WebDriver for browser-based testing.
 
