@@ -4,21 +4,26 @@ using AventStack.ExtentReports;
 using MySql.Data.MySqlClient;
 using System.Data;
 using MySqlX.XDevAPI.Common;
+using Xunit.Abstractions;
 
 namespace Sql
 {
     [Collection("Extent Report Collection")]
-    public class Sql : IClassFixture<DatabaseFixture>
+    public class Sql : Base, IClassFixture<DatabaseFixture>
     {
+        private readonly ITestOutputHelper _output;
         private readonly DatabaseFixture _databaseFixture;
         private readonly ExtentReportsFixture _reportFixture;
         private ExtentTest _test;
         private string ConnectionString = Base.mySqlConnection;
+        private string testMsg;
 
-        public Sql(ExtentReportsFixture reportFixture, DatabaseFixture databaseFixture)
+        public Sql(ExtentReportsFixture reportFixture, DatabaseFixture databaseFixture, TestConfigFixture config, ITestOutputHelper output) : base(config)
         {
             _reportFixture = reportFixture;
             _databaseFixture = databaseFixture;
+            _output = output;
+            _output.WriteLine($"Test Environment (Sql): {testEnvironment}");
         }
 
         /// <name>
@@ -75,15 +80,21 @@ namespace Sql
                 }
 
                 Assert.True(hasRows, "No records were returned from the stored procedure.");
-                _test.Pass("Stored procedure executed and returned valid results.");
+                testMsg = "Stored procedure executed and returned valid results.";
+                _test.Pass(testMsg);
             }
             catch (Exception ex)
             {
-                _test.Fail($"Stored procedure execution failed: {ex.Message}");
+                testMsg = $"Stored procedure execution failed: {ex.Message}";
+                _test.Fail(testMsg);
+                
                 throw;
             }
+            finally
+            {
+                _output.WriteLine(testMsg);
+            }
         }
-
 
         /// <name>
         ///   Test Case: SqlQueryCheckSpecificUserScore
@@ -117,12 +128,18 @@ namespace Sql
                 // Assert that the specified user score is greater than or equal to 75
                 Assert.Contains(results, r => r.Name == "Ringo" && r.Score >= 75);
 
-                _test.Pass("SQL query executed successfully.");
+                testMsg = "SQL query executed successfully.";
+                _test.Pass(testMsg);
             }
             catch (Exception ex)
             {
-                _test.Fail($"SQL query failed: {ex.Message}");
+                testMsg = $"SQL query failed: {ex.Message}";
+                _test.Fail(testMsg);
                 throw;
+            }
+            finally
+            {
+                _output.WriteLine(testMsg);
             }
         }
 

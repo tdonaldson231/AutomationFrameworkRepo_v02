@@ -259,3 +259,7 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
+
+# Generated Html file but leave one example
+*.html
+!Extent_Reports_Example.html

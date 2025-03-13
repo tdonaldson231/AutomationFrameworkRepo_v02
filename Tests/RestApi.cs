@@ -2,19 +2,25 @@ using Xunit;
 using RestSharp;
 using AutomationFramework_v8._0.Src.Lib;
 using AventStack.ExtentReports;
+using Xunit.Abstractions;
+using System;
 
 namespace RestApi
 {
     [Collection("Extent Report Collection")]
-    public class RestApi 
+    public class RestApi : Base
     {
+        private readonly ITestOutputHelper _output;
         private readonly ExtentReportsFixture _reportFixture;
         private ExtentTest _test;
+        private string testMsg;
 
-        public RestApi(ExtentReportsFixture reportFixture)
+        public RestApi(ExtentReportsFixture reportFixture, TestConfigFixture config, ITestOutputHelper output) : base(config)
         {
             _reportFixture = reportFixture;
-        }
+            _output = output;
+            _output.WriteLine($"Test Environment (RestApi): {testEnvironment}");
+        }     
 
         /// <name>
         ///   Test Case: RestApiGetDataBackendService
@@ -47,12 +53,18 @@ namespace RestApi
                 System.Net.HttpStatusCode statusCode = response.StatusCode;
 
                 Assert.Equal("OK", statusCode.ToString());
-                _test.Pass("PASS: The expected status was detected from the backend service.");
+                testMsg = "PASS: The expected status was detected from the backend service.";
+                _test.Pass(testMsg);
             }
             catch (Exception ex)
             {
-                _test.Fail("FAIL: The expected status was not detected. " + ex.Message);
+                testMsg = "FAIL: The expected status was not detected. " + ex.Message;
+                _test.Fail(testMsg);
                 throw;
+            }
+            finally
+            {
+                _output.WriteLine(testMsg);
             }
         }
 
@@ -70,12 +82,18 @@ namespace RestApi
                 System.Net.HttpStatusCode statusCode = response.StatusCode;
 
                 Assert.Equal("OkieDokie", statusCode.ToString());
-                _test.Pass("PASS: The expected status was detected from the backend service.");
+                testMsg = "PASS: The expected status was detected from the backend service.";
+                _test.Pass(testMsg);
             }
             catch (Exception ex)
             {
-                _test.Fail("FAIL: The expected status was not detected: " + ex.Message);
+                testMsg = "FAIL: The expected status was not detected: " + ex.Message;
+                _test.Fail(testMsg);
                 throw;
+            }
+            finally
+            {
+                _output.WriteLine(testMsg);
             }
         }
     }
