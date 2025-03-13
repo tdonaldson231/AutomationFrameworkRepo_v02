@@ -59,8 +59,26 @@ used for the SQL tests.
     |   `-- test.runsettings
     `-- Sql.cs
 ```
+## Src
+### Config
+The Config directory is used to store configuration files that assist in setting up and managing various utilities needed for the project. These configuration files are integral in facilitating tasks such as automating tests with Selenium, seeding mock data into a SQL database, and configuring other project-related utilities.
+
+### Base
+The Base class serves as the foundational class for the automation framework within the project. It provides essential functionality such as setting up the environment and initializing a Selenium WebDriver for browser-based testing.
+
+### Fixtures
+Fixtures are used for setting up and tearing down the test environment. They provide the necessary context and resources to execute tests, ensuring that tests have the correct setup before running and that resources are cleaned up afterward.
+
 ### Helpers
-Utility methods or classes designed to simplify repetitive tasks within the tests. They are typically used for operations that don't directly involve setting up or tearing down test data but instead offer support by providing commonly used functionality
+Utility methods or classes designed to simplify repetitive tasks within the tests. They are used for operations that don't directly involve setting up or tearing down test data but instead offer support by providing commonly used functionality.
+
+### Reports
+Extent HTML Reports gather the results from all tests executed during a test pass and generate detailed reports, including date and timestamps, which are then saved to the `Reports` directory.
+
+## Tests
+Contains several types of classes that serve different objectives of testing such regression testing and other types of testing. The organization and content of the test directory depend on the testing framework being used (currently using xUnit) and the structure of the application.
+
+
 
 ## Prerequisites
 - Docker Desktop must be installed and running locally (using windows). 
@@ -175,6 +193,3 @@ Total tests: 3
      Passed: 3
  Total time: 37.2231 Seconds
 ```
-
-## Automation Html Results 
-Extent Html Reports are generated with date/timestamps in the `Reports` directory
