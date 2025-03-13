@@ -8,9 +8,10 @@ This repository demonstrates a basic test automation framework in C# using:
 - **Extent Reports** for generating HTML reports
 - **MySql** for a simple SQL query test case.
 
-There are only 4-test cases for a basic demonstration, two API, a UI, and one SQL. 
+There are currently only 5-test cases for a basic demonstration, two API, a UI, and a couple for SQL. 
 One of the API is set to fail intentionally to show how failures are displayed in the results.
-The SQL test case spins up a MySql DB and seeds with mock data to be used for the SQL tests.
+The SQL test case spins up a MySql DB, seeds with mock data, adds a stored procedure both with are
+used for the SQL tests.
 
 ## Prerequisites
 - Docker Desktop must be installed and running locally (using windows). 
