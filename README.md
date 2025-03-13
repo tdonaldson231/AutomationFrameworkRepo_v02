@@ -80,7 +80,7 @@ From the home directory, execute only the tests flagged as `Regression` and over
 ```bash
 export testEnvironment=development
 
-dotnet test bin/Debug/net8.0/AutomationFrameworkRepo_v02.dll --filter "Category=Regression" --logger "console;verbosity=info" 
+dotnet test bin/Debug/net8.0/AutomationFrameworkRepo_v02.dll --filter "Category=Regression" --logger "console;verbosity=detailed" 
 ```
 Results
 ```bash
@@ -88,8 +88,43 @@ VSTest version 17.12.0 (x64)
 
 Starting test execution, please wait...
 A total of 1 test files matched the specified pattern.
+C:\Users\toddd\source\repos\AutomationFrameworkRepo_v02\bin/Debug/net8.0/AutomationFrameworkRepo_v02.dll
+[xUnit.net 00:00:00.00] xUnit.net VSTest Adapter v2.5.3.1+6b60a9e56a (64-bit .NET 8.0.14)
+[xUnit.net 00:00:00.08]   Discovering: AutomationFrameworkRepo_v02
+[xUnit.net 00:00:00.13]   Discovered:  AutomationFrameworkRepo_v02
+[xUnit.net 00:00:00.13]   Starting:    AutomationFrameworkRepo_v02
+Loading Extent Config from: C:\Users\toddd\source\repos\AutomationFrameworkRepo_v02\Extent-Config.xml
+Base Directory: C:\Users\toddd\source\repos\AutomationFrameworkRepo_v02\bin\Debug\net8.0\
+Project Path: C:\Users\toddd\source\repos\AutomationFrameworkRepo_v02
+Docker Compose Directory: C:\Users\toddd\source\repos\AutomationFrameworkRepo_v02\Config\Sql
+  Passed Sql.Sql.SqlStoredProcedureCheckingScores [81 ms]
+  Standard Output Messages:
+ Test Environment (Sql): development
+ Stored procedure executed and returned valid results.
 
-Passed!  - Failed:     0, Passed:     3, Skipped:     0, Total:     3, Duration: 9 s - AutomationFrameworkRepo_v02.dll (net8.0)
+
+Starting ChromeDriver 134.0.6998.88 (7e3d5c978c6d3a6eda25692cfac7f893a2b20dd0-refs/branch-heads/6998@{#1898}) on port 49452
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+ChromeDriver was started successfully on port 49452.
+  Passed RestApi.RestApi.RestApiGetDataBackendService [230 ms]
+  Standard Output Messages:
+ Test Environment (RestApi): development
+ PASS: The expected status was detected from the backend service.
+
+
+  Passed UserInterface.PortalTests.PortalVerifyTextOnAboutPage [891 ms]
+  Standard Output Messages:
+ Test Environment (PortalTests): development
+ PASS: The expected text was found on the About page.
+
+
+[xUnit.net 00:00:36.65]   Finished:    AutomationFrameworkRepo_v02
+
+Test Run Successful.
+Total tests: 3
+     Passed: 3
+ Total time: 37.2231 Seconds
 ```
 
 ## Automation Html Results 
