@@ -1,0 +1,48 @@
+receivers:
+  otlp:
+    protocols:
+      grpc:
+      http:
+
+  prometheus:
+    config:
+      scrape_configs:
+        - job_name: "sample-app"
+          static_configs:
+            - targets: ["sample-app:5000"]  # app’s container name
+
+  filelog:  # Add a filelog receiver to collect logs
+    include:
+      - /var/log/app/*.log  # Update with your app's log file path
+
+processors:
+  batch:
+
+exporters:
+  prometheus:
+    endpoint: "0.0.0.0:9464"
+
+  otlp:
+    endpoint: "http://jaeger:4317"  # Sends traces to Jaeger
+    tls:
+      insecure: true  
+
+  loki:  # Add Loki as a log exporter
+    endpoint: "http://loki:3100/loki/api/v1/push"
+
+service:
+  pipelines:
+    metrics:
+      receivers: [otlp, prometheus]
+      processors: [batch]
+      exporters: [prometheus]
+
+    traces:
+      receivers: [otlp]
+      processors: [batch]
+      exporters: [otlp]
+
+    logs:
+      receivers: [filelog, otlp]
+      processors: [batch]
+      exporters: [loki]

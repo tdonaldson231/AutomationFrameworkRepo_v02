@@ -1,0 +1,86 @@
+#version: "3.7"
+
+services:
+  loki:
+    image: grafana/loki:2.9.0
+    container_name: loki
+    ports:
+      - "3100:3100"
+    command: -config.file=/etc/loki/local-config.yaml -config.expand-env=true
+    volumes:
+      - ./loki/wal:/loki/wal
+    networks:
+      - net_monitor
+
+  jaeger:
+    image: jaegertracing/all-in-one:latest
+    container_name: jaeger
+    ports:
+      - "16686:16686"  # Jaeger UI
+      - "4317:4317"    # OTLP gRPC (changed to match otel-collector)
+      - "4318:4318"    # OTLP HTTP
+    networks:
+      - net_monitor
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    ports:
+      - "3000:3000"  # Grafana UI
+    depends_on:
+      - loki
+      - jaeger
+      - prometheus
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin  # Admin password for Grafana
+      - GF_AUTH_ANONYMOUS_ENABLED=true  # Allow anonymous access (optional)
+    volumes:
+      - ./grafana/provisioning:/etc/grafana/provisioning  # Mount your custom provisioning if needed
+    networks:
+      - net_monitor
+
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: prometheus
+    volumes:
+      - ./prometheus.yaml:/etc/prometheus/prometheus.yaml
+    ports:
+      - "9090:9090"
+    networks:
+      - net_monitor
+
+  otel-collector:
+    image: otel/opentelemetry-collector:latest
+    container_name: otel-collector
+    ports:
+      - "43200:4317"  # Map a different host port to the container's 4317
+      - "43218:4318"
+      - "9464:9464"    # Ensure Prometheus can scrape metrics
+    volumes:
+      #- ./otel-collector/config:/etc/otel-collector  # Mount OpenTelemetry config folder
+      - ./otel-collector-config.yaml:/etc/otel-collector-config.yaml
+    networks:
+      - net_monitor
+
+  app:
+    build: .
+    container_name: sample-app
+    ports:
+    - "5000:5000"
+    environment:
+    - OTEL_EXPORTER_OTLP_ENDPOINT=http://otel-collector:4317
+    - OTEL_METRICS_EXPORTER=otlp
+    - OTEL_TRACES_EXPORTER=otlp
+    - OTEL_LOGS_EXPORTER=otlp
+    - OTEL_SERVICE_NAME=sample-app
+    depends_on:
+    - otel-collector
+    networks:
+    - net_monitor
+
+networks:
+  net_monitor:
+    driver: bridge
+
+volumes:
+  prometheus_data:
