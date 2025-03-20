@@ -12,6 +12,20 @@ services:
     networks:
       - net_monitor
 
+  promtail:
+    image: grafana/promtail:latest
+    container_name: promtail
+    ports:
+      - "9080:9080"  # Promtail's HTTP port (optional for metrics)
+    networks:
+      - net_monitor
+    volumes:
+      - ./promtail/promtail.yaml:/etc/promtail/promtail.yaml  # Mount Promtail config file
+      #- /var/log:/var/log  # Ensure log files are available for Promtail to scrape
+      - /var/lib/docker/containers:/var/lib/docker/containers
+    depends_on:
+      - loki  # Ensure Loki is up before Promtail starts
+
   jaeger:
     image: jaegertracing/all-in-one:latest
     container_name: jaeger

@@ -2,7 +2,9 @@ receivers:
   otlp:
     protocols:
       grpc:
+        endpoint: "0.0.0.0:43200"
       http:
+        endpoint: "0.0.0.0:4318"
 
   prometheus:
     config:
@@ -19,8 +21,13 @@ processors:
   batch:
 
 exporters:
+  logging:
+    loglevel: debug
   prometheus:
-    endpoint: "0.0.0.0:9464"
+    endpoint: "0.0.0.0:9090"
+# exporters:
+#   prometheus:
+#     endpoint: "0.0.0.0:9464"
 
   otlp:
     endpoint: "http://jaeger:4317"  # Sends traces to Jaeger
